@@ -1,4 +1,5 @@
 import HotelManagement.Guest;
+import Rooms.RoomType;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,7 +11,7 @@ public class GuestTest {
 
     @Before
     public void before(){
-        guest = new Guest("Sheila");
+        guest = new Guest("Sheila", RoomType.BEDROOM);
     }
 
     @Test
@@ -22,6 +23,11 @@ public class GuestTest {
     public void canSetName(){
         guest.setName("Sheila Barrymore");
         assertEquals("Sheila Barrymore", guest.getName());
+    }
+
+    @Test
+    public void hasType(){
+        assertEquals(RoomType.BEDROOM, guest.getRoomType());
     }
 
 }
