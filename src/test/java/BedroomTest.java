@@ -58,4 +58,17 @@ public class BedroomTest {
         assertEquals(sheila, bedroom.getGuests());
     }
 
+    @Test
+    public void canBookRoom(){
+        bedroom.bookRoom();
+        assertEquals(true, bedroom.getBooked());
+    }
+
+    @Test
+    public void canUnbookRoom(){
+        bedroom.unbookRoom();
+        assertEquals(false, bedroom.getBooked());
+    }
+
+
 }
