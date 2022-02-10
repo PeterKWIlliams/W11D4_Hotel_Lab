@@ -1,3 +1,5 @@
+package HotelManagement;
+
 public class Guest {
 
     private String name;
