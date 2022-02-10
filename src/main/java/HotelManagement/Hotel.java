@@ -41,26 +41,49 @@ public class Hotel {
         return conferenceRooms.size();
     }
 
-    public String checkInGuest(Guest guest){
+    public Booking createBooking(Room room,Guest guest){
+        room.addGuest(guest);
+        room.bookRoom();
+        return new Booking(guest.getLengthOfStay(), room);
+
+    }
+
+    public Booking checkInGuest(Guest guest){
         if (guest.getRoomType() == RoomType.BEDROOM) {
             for (Room room : bedrooms){
                 if (!room.getBooked()){
-                    room.addGuest(guest);
-                    room.bookRoom();
-                    return "Guest checked into bedroom.";
+                    return createBooking(room,guest);
+
                 }
             }
         }
         else if (guest.getRoomType() == RoomType.CONFERENCE) {
             for (Room room : conferenceRooms){
                 if (!room.getBooked()){
-                    room.addGuest(guest);
-                    room.bookRoom();
-                    return "Guest checked into conference room.";
+                    return createBooking(room,guest);
                 }
             }
         }
-        return "Guest cannot be checked in. All rooms are full.";
+        return null;
+    }
+
+    public void checkOutGuest(Guest guest){
+        if (guest.getRoomType() == RoomType.BEDROOM) {
+            for (Room room : bedrooms){
+                if (room.getGuests().contains(guest)){
+                    room.removeGuest(guest);
+                    room.unbookRoom();
+                }
+            }
+        }
+        else if (guest.getRoomType() == RoomType.CONFERENCE) {
+            for (Room room : conferenceRooms){
+                if (room.getGuests().contains(guest)){
+                    room.removeGuest(guest);
+                    room.unbookRoom();
+                }
+            }
+        }
     }
 
 }
