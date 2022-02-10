@@ -4,6 +4,8 @@ import Rooms.RoomType;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class BedroomTest {
@@ -48,6 +50,12 @@ public class BedroomTest {
         assertEquals(1, bedroom.getNumberOfGuests());
     }
 
-//    capacity, guests, room number, room type, nightly rate
+    @Test
+    public void canReturnGuestArray(){
+        bedroom.addGuest(guest);
+        ArrayList<Guest> sheila = new ArrayList<>();
+        sheila.add(guest);
+        assertEquals(sheila, bedroom.getGuests());
+    }
 
 }

@@ -17,23 +17,11 @@ public class Bedroom extends Room{
         return roomNumber;
     }
 
-    public void setRoomNumber(int roomNumber) {
-        this.roomNumber = roomNumber;
-    }
-
     public String getRoomType() {
         return roomType.name();
     }
 
-    public void setRoomType(RoomType roomType) {
-        this.roomType = roomType;
-    }
-
     public double getNightlyRate() {
         return nightlyRate;
-    }
-
-    public void setNightlyRate(double nightlyRate) {
-        this.nightlyRate = nightlyRate;
     }
 }
