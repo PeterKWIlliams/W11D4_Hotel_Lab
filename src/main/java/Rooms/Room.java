@@ -17,15 +17,15 @@ public abstract class Room {
         return capacity;
     }
 
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
-    }
-
     public ArrayList<Guest> getGuests() {
         return guests;
     }
 
-    public void setGuests(ArrayList<Guest> guests) {
-        this.guests = guests;
+    public int getNumberOfGuests(){
+        return guests.size();
+    }
+
+    public void addGuest(Guest guest) {
+        this.guests.add(guest);
     }
 }
